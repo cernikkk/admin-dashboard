@@ -1,8 +1,8 @@
-@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@500&display=swap');
 
 :root {
   --background-color: #f5f5f5; 
+  --darker-background-color: #d4d4d4; 
   --lighter-accent-color: #a9c52f; 
   --darker-accent-color: #2c5d63; 
   --main-color: #283739; 
@@ -14,19 +14,32 @@ html, body {
   padding: 0;
 }
 
-p, h1, h2, h3, h4, h5 {
+p, h1, h2, h3, h4, h5, span, a{
   margin: 0;
   padding: 0;
 }
 
-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; 
+h1 {
+  font-size: 1.5rem;
 }
 
-i {
+h2 {
+  font-size: 1.3rem;
+}
+
+h3 {
+  padding-top: 20px;
+}
+
+a {
+  text-decoration: none;
   color: currentColor;
+}
+
+img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; 
 }
 
 .container {
@@ -39,18 +52,29 @@ i {
   display: flex;
   flex-direction: column;
   grid-row: 1 / 3;
+  background: var(--main-color);
+  color: var(--background-color);
+  padding: 20px;
 }
 
-.tittle,
-.sidebar > div > div {
+.tittle > a,
+.sidebar > div > div > a {
   display: flex;
   align-items: center;
   gap: 10px;
+  height: 40px;
+}
+
+.tab {
+  margin-top: 20px;
 }
 
 .header {
   display: grid;
   grid-template-columns: 3fr 1fr;
+  background: var(--background-color);
+  padding: 15px;
+  gap: 15px;
 }
 
 .header > div,
@@ -59,42 +83,152 @@ i {
   align-items: center;
 }
 
-.searchbar {
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
 
+input {
+  width: 100%;
+  border-radius: 0;
+  border: 0 solid;
+  height: 1.7rem;
+  background: var(--darker-background-color);
+}
+
+input:focus {
+  outline: none !important;
+  border:2px solid var(--lighter-accent-color);
+  background: var(--background-color);
 }
 
 .user-profile-small {
   justify-content: right;
 }
+
+.user-profile-small,
+.user-profile-big {
+  gap: 15px;
+}
+
+.user-profile-big > img{
+  width: 70px;
+  height: 70px;
+}
+
+.greeting {
+   font-size: 0.8rem;
+}
+
+.header > div > span {
+  font-size: 30px !important;
+}
+
 .main-buttons {
   justify-content: space-between;
+}
+.main-buttons > button {
+  height: 1.7rem;
+  padding: 0 15px 0 15px;
+  border-radius: 0;
+  border: 0;
+  background: var(--darker-accent-color);
+  color: var(--background-color);
+  font-size: 0.9rem;
 }
 
 .dashboard {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 3fr 1fr;
+  background: var(--darker-background-color);
+  padding: 0 20px 20px 20px;
+  column-gap: 20px;
 }
 
 .projects {
-  grid-row: 1 / 3;
+  grid-row: 2 / 5;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
 }
 
 .projects > h3 {
-  grid-column: 1 / -1;
+  grid-column: 1 / 3;
+}
+
+h3 {
+  margin-bottom: 15px;
 }
 
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.3);
+  background: var(--background-color);
+  top:0;
+  left: 0;
+  transition: ease 0.2s;
+}
+
+.project-card::before {
+  position: absolute;
+  content: "";
+  background: var(--lighter-accent-color);
+  inset: 0 98% 0 0;
+}
+
+.project-card:hover{
+top:-5px;
+left: 5px;
+}
+
+.project-card > div {
+  margin-left: 2%;
 }
 
 .project-buttons {
   align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
 }
 
-/* i, div {
+.project-buttons > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 0;
+}
+
+.announcements,
+.trending {
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.3);
+  background: var(--background-color);
+  padding: 20px;
+}
+
+.announcements-card,
+.trending {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.trending-user {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+hr {
+  border-top: 2px black;
+}
+
+/* span, div {
   border: red dashed 1px;
 } */
